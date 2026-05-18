@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="合同会社マイホコは、身体の健康とお金の健康を守り育むため、整体・健康商材・節税支援・金融教育を通じて人生の土台づくりを支援します。">
+  <title>合同会社マイホコ | 身体とお金の健康を守り育む</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep: #071613;
+      --deep-2: #0e221d;
+      --navy: #132a3a;
+      --sage: #6f8f7b;
+      --sage-light: #dce7df;
+      --gold: #d6ad47;
+      --gold-dark: #a77d22;
+      --cream: #f8f4eb;
+      --paper: #fffdf8;
+      --ink: #14201d;
+      --muted: #65706c;
+      --line: rgba(20, 32, 29, 0.12);
+      --white-line: rgba(255, 255, 255, 0.14);
+      --shadow: 0 24px 70px rgba(8, 24, 20, 0.14);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --container: min(1120px, calc(100% - 40px));
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      padding: 22px 0;
+      transition: padding 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .site-header.is-scrolled {
+      padding: 14px 0;
+      background: rgba(7, 22, 19, 0.86);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid rgba(214, 173, 71, 0.7);
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(214, 173, 71, 0.2), rgba(255, 255, 255, 0.04));
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      display: block;
+      margin-top: 3px;
+      color: rgba(255, 255, 255, 0.55);
+      font-family: "Playfair Display", serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      line-height: 1.2;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .desktop-nav a {
+      position: relative;
+      padding: 10px 0;
+      transition: color 0.25s ease;
+    }
+
+    .desktop-nav a::after {
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .desktop-nav a:hover {
+      color: var(--gold);
+    }
+
+    .desktop-nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .menu-button {
+      display: none;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .menu-button span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px 0;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-button.is-open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-button.is-open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-button.is-open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: grid;
+      place-items: center;
+      background: rgba(7, 22, 19, 0.96);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(18px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      backdrop-filter: blur(20px);
+    }
+
+    .mobile-nav.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    .mobile-nav-list {
+      display: grid;
+      gap: 24px;
+      text-align: center;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      list-style: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: 150px 0 88px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(111, 143, 123, 0.35), transparent 32%),
+        radial-gradient(circle at 82% 24%, rgba(214, 173, 71, 0.23), transparent 30%),
+        linear-gradient(135deg, #06110f 0%, #0b211c 45%, #142b3a 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 72px 72px;
+      content: "";
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 82%);
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -18vw;
+      bottom: -35vw;
+      width: 68vw;
+      height: 68vw;
+      min-width: 640px;
+      min-height: 640px;
+      border: 1px solid rgba(214, 173, 71, 0.22);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(214, 173, 71, 0.12), transparent 55%),
+        radial-gradient(circle at 42% 40%, rgba(255, 255, 255, 0.08), transparent 18%);
+      content: "";
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      align-items: center;
+      gap: 58px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 44px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    .hero-title {
+      max-width: 760px;
+      font-size: clamp(2.7rem, 8vw, 4rem);
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -0.065em;
+    }
+
+    .hero-title .gold {
+      display: inline-block;
+      background: linear-gradient(120deg, #fff0b8 0%, var(--gold) 42%, #9e741d 100%);
+      background-clip: text;
+      color: transparent;
+      -webkit-background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin-top: 30px;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: clamp(0.98rem, 2vw, 1.08rem);
+      line-height: 2.05;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 42px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: var(--deep);
+      box-shadow: 0 18px 36px rgba(214, 173, 71, 0.23);
+    }
+
+    .button-primary:hover {
+      background: #fff0b8;
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(18px);
+    }
+
+    .orbit {
+      position: relative;
+      display: grid;
+      min-height: 470px;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(214, 173, 71, 0.18), transparent 26%),
+        linear-gradient(150deg, rgba(15, 45, 39, 0.95), rgba(13, 29, 42, 0.95));
+    }
+
+    .orbit::before,
+    .orbit::after {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .orbit::before {
+      width: 320px;
+      height: 320px;
+      transform: rotate(18deg) scaleX(1.32);
+    }
+
+    .orbit::after {
+      width: 210px;
+      height: 210px;
+      transform: rotate(-32deg) scaleX(1.22);
+    }
+
+    .orbit-center {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: 170px;
+      height: 170px;
+      place-items: center;
+      border: 1px solid rgba(214, 173, 71, 0.48);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(214, 173, 71, 0.2), rgba(255, 255, 255, 0.05));
+      color: #fff;
+      text-align: center;
+    }
+
+    .orbit-center strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: 0.1em;
+    }
+
+    .orbit-center span {
+      color: rgba(255, 255, 255, 0.64);
+      font-family: "Playfair Display", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+    }
+
+    .floating-label {
+      position: absolute;
+      z-index: 3;
+      width: min(185px, 42%);
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .floating-label strong {
+      display: block;
+      color: #fff;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .floating-label span {
+      display: block;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.68rem;
+      line-height: 1.7;
+    }
+
+    .label-body {
+      top: 42px;
+      left: 26px;
+    }
+
+    .label-money {
+      right: 26px;
+      bottom: 44px;
+    }
+
+    .label-growth {
+      right: 36px;
+      top: 76px;
+    }
+
+    .section {
+      padding: 118px 0;
+    }
+
+    .section-dark {
+      position: relative;
+      background: var(--deep);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .section-dark::before {
+      position: absolute;
+      inset: auto auto -220px -160px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(111, 143, 123, 0.16);
+      filter: blur(40px);
+      content: "";
+    }
+
+    .section-dark::after {
+      position: absolute;
+      inset: -250px -210px auto auto;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      background: rgba(214, 173, 71, 0.13);
+      filter: blur(46px);
+      content: "";
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 58px;
+    }
+
+    .section-head.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .section-head.center .eyebrow::before {
+      display: none;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.22;
+      letter-spacing: -0.045em;
+    }
+
+    .section-lead {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 2;
+    }
+
+    .section-dark .section-lead {
+      color: rgba(255, 255, 255, 0.66);
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .text-panel {
+      display: grid;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 2.08;
+    }
+
+    .text-panel strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .quote-card {
+      position: relative;
+      margin: 18px 0;
+      padding: 30px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 20px 20px 0;
+      background: #fff;
+      box-shadow: 0 18px 54px rgba(8, 24, 20, 0.07);
+    }
+
+    .quote-card p {
+      color: var(--ink);
+      font-size: clamp(1.02rem, 2vw, 1.22rem);
+      font-weight: 800;
+      line-height: 1.9;
+    }
+
+    .quote-card cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .wellness-board {
+      position: relative;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at top right, rgba(214, 173, 71, 0.16), transparent 36%),
+        linear-gradient(160deg, #ffffff, #fbf8f0);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .wellness-board::after {
+      position: absolute;
+      inset: auto -80px -110px auto;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(214, 173, 71, 0.26);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .wellness-item {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wellness-item:last-child {
+      border-bottom: 0;
+    }
+
+    .icon-box {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(111, 143, 123, 0.12);
+      color: var(--sage);
+      font-size: 1.28rem;
+      font-weight: 900;
+    }
+
+    .icon-box.gold {
+      background: rgba(214, 173, 71, 0.14);
+      color: var(--gold-dark);
+    }
+
+    .wellness-item h3 {
+      font-size: 1.08rem;
+      line-height: 1.55;
+    }
+
+    .wellness-item p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.9;
+    }
+
+    .service-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .service-card {
+      position: relative;
+      display: grid;
+      min-height: 540px;
+      align-content: space-between;
+      padding: 38px;
+      border: 1px solid var(--white-line);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+        radial-gradient(circle at 18% 12%, rgba(111, 143, 123, 0.18), transparent 35%);
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .service-card:nth-child(2) {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+        radial-gradient(circle at 82% 12%, rgba(214, 173, 71, 0.18), transparent 35%);
+    }
+
+    .service-card:hover {
+      border-color: rgba(214, 173, 71, 0.42);
+      transform: translateY(-4px);
+    }
+
+    .service-number {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+    }
+
+    .service-icon {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
+      color: #fff;
+      font-size: 1.16rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 24px;
+      font-size: clamp(1.55rem, 3vw, 2.1rem);
+      line-height: 1.35;
+      letter-spacing: -0.03em;
+    }
+
+    .service-list {
+      display: grid;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .service-list h4 {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .service-list h4::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      content: "";
+      flex: 0 0 auto;
+    }
+
+    .service-list p {
+      margin-top: 7px;
+      padding-left: 16px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.88rem;
+      line-height: 1.95;
+    }
+
+    .service-visual {
+      position: relative;
+      min-height: 150px;
+      margin-top: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 24% 42%, rgba(111, 143, 123, 0.55), transparent 19%),
+        radial-gradient(circle at 70% 36%, rgba(214, 173, 71, 0.28), transparent 17%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      overflow: hidden;
+    }
+
+    .service-card:nth-child(2) .service-visual {
+      background:
+        radial-gradient(circle at 70% 35%, rgba(214, 173, 71, 0.5), transparent 18%),
+        radial-gradient(circle at 28% 55%, rgba(77, 115, 151, 0.44), transparent 21%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    }
+
+    .service-visual::before {
+      position: absolute;
+      inset: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      content: "";
+      transform: rotate(-6deg);
+    }
+
+    .message-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .message-card {
+      position: relative;
+      padding: clamp(34px, 7vw, 68px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at top right, rgba(214, 173, 71, 0.12), transparent 34%),
+        #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .message-card::before {
+      display: block;
+      margin-bottom: 24px;
+      color: rgba(214, 173, 71, 0.24);
+      content: "“";
+      font-family: "Playfair Display", serif;
+      font-size: 7rem;
+      font-weight: 700;
+      line-height: 0.65;
+    }
+
+    .message-card h3 {
+      max-width: 760px;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.75;
+      letter-spacing: -0.03em;
+    }
+
+    .message-body {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 2.08;
+    }
+
+    .signoff {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 42px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .signoff small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    .signoff strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 1.02rem;
+    }
+
+    .signature {
+      text-align: right;
+    }
+
+    .signature b {
+      display: block;
+      font-family: "Playfair Display", "Noto Sans JP", serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      line-height: 1.2;
+    }
+
+    .signature span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+
+    .about-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.58fr);
+      gap: 54px;
+      align-items: start;
+    }
+
+    .profile-table {
+      border-top: 1px solid var(--white-line);
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--white-line);
+    }
+
+    .profile-row dt {
+      color: rgba(255, 255, 255, 0.48);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .profile-row dd {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .profile-row ul {
+      display: grid;
+      gap: 5px;
+      list-style: none;
+    }
+
+    .profile-row li::before {
+      color: var(--gold);
+      content: "— ";
+    }
+
+    .contact-card {
+      position: sticky;
+      top: 110px;
+      padding: 32px;
+      border: 1px solid var(--white-line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+      backdrop-filter: blur(16px);
+    }
+
+    .contact-card h3 {
+      color: var(--gold);
+      font-size: 1.35rem;
+      line-height: 1.5;
+    }
+
+    .contact-card p {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 26px;
+      list-style: none;
+    }
+
+    .contact-list a {
+      display: grid;
+      gap: 4px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+    .contact-list a:hover {
+      border-color: rgba(214, 173, 71, 0.48);
+      background: rgba(255, 255, 255, 0.09);
+      transform: translateY(-2px);
+    }
+
+    .contact-list small {
+      color: rgba(255, 255, 255, 0.47);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-list strong {
+      color: #fff;
+      font-size: 1.03rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .notice {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--white-line);
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 0.76rem;
+      text-align: center;
+    }
+
+    .site-footer {
+      padding: 42px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #06110f;
+      color: rgba(255, 255, 255, 0.48);
+      text-align: center;
+    }
+
+    .site-footer strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.22em;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+      }
+
+      .hero-layout,
+      .vision-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 620px;
+        margin-inline: auto;
+      }
+
+      .orbit {
+        min-height: 390px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --container: min(100% - 28px, 1120px);
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-name {
+        font-size: 0.84rem;
+      }
+
+      .brand-sub {
+        font-size: 0.64rem;
+      }
+
+      .hero {
+        padding-top: 128px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.45rem, 13vw, 4.2rem);
+      }
+
+      .hero-actions,
+      .button {
+        width: 100%;
+      }
+
+      .hero-card {
+        padding: 18px;
+      }
+
+      .orbit {
+        min-height: 330px;
+      }
+
+      .floating-label {
+        width: 150px;
+        padding: 13px;
+      }
+
+      .label-body {
+        top: 28px;
+        left: 18px;
+      }
+
+      .label-money {
+        right: 18px;
+        bottom: 26px;
+      }
+
+      .label-growth {
+        display: none;
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      .wellness-board,
+      .service-card,
+      .contact-card {
+        padding: 24px;
+      }
+
+      .wellness-item {
+        grid-template-columns: 1fr;
+      }
+
+      .signoff {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .signature {
+        text-align: left;
+      }
+
+      .profile-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="siteHeader" class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="合同会社マイホコ トップへ戻る">
+        <span class="brand-mark">M</span>
+        <span>
+          <span class="brand-name">合同会社マイホコ</span>
+          <span class="brand-sub">MAIHOKO Co.</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="グローバルナビゲーション">
+        <a href="#vision">VISION</a>
+        <a href="#services">BUSINESS</a>
+        <a href="#message">MESSAGE</a>
+        <a href="#about">COMPANY</a>
+      </nav>
+
+      <button id="menuButton" class="menu-button" type="button" aria-label="メニューを開閉する" aria-controls="mobileNav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="スマートフォン用ナビゲーション">
+    <ul class="mobile-nav-list">
+      <li><a href="#vision">VISION</a></li>
+      <li><a href="#services">BUSINESS</a></li>
+      <li><a href="#message">MESSAGE</a></li>
+      <li><a href="#about">COMPANY</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-layout">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Wellness of Body & Finance</span>
+          <h1 class="hero-title">
+            身体とお金の健康を<span class="gold">守り、育む</span>
+          </h1>
+          <p class="hero-copy">
+            健やかな身体があるからこそ、豊かな未来を描ける。健全な資産設計があるからこそ、心から健康的な日々を生きられる。合同会社マイホコは、人生の「二大土台」をトータルで支えます。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#vision">ビジョンを深く知る</a>
+            <a class="button button-secondary" href="#services">事業内容を見る</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" aria-label="身体とお金の健康を象徴する抽象ビジュアル">
+          <div class="orbit">
+            <div class="floating-label label-body">
+              <strong>Body Wellness</strong>
+              <span>整体と健康商材で、毎日の動きと活力を支える。</span>
+            </div>
+            <div class="floating-label label-growth">
+              <strong>Life Foundation</strong>
+              <span>安心して挑戦できる、人生の土台づくり。</span>
+            </div>
+            <div class="floating-label label-money">
+              <strong>Financial Wellness</strong>
+              <span>節税と金融教育で、未来の選択肢を守る。</span>
+            </div>
+            <div class="orbit-center">
+              <span>MAIHOKO</span>
+              <strong>守り、育む</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="section">
+      <div class="container vision-grid">
+        <div class="reveal">
+          <div class="section-head">
+            <span class="eyebrow">Our Philosophy</span>
+            <h2 class="section-title">なぜ「身体」と<br>「お金」なのか</h2>
+            <p class="section-lead">
+              私たちは、健康と資産を別々の課題ではなく、人生の安心を支える一体のテーマとして捉えています。
+            </p>
+          </div>
+
+          <div class="text-panel">
+            <p>
+              人生における最大の不安は、大きく分けて二つあります。それは、<strong>身体の衰えや不調</strong>と、<strong>将来のお金に対する不安</strong>です。
+            </p>
+            <p>
+              身体の痛みや不調は日々の笑顔を奪い、どれほど資産があっても人生の輝きを曇らせてしまいます。一方で、お金の不安や知識不足は生活から心のゆとりを奪い、精神的な健康にも影響を及ぼします。
+            </p>
+            <div class="quote-card">
+              <p>身体とお金の健康を守り育むことで、関わるすべての個人・法人が、本来のポテンシャルを最大限に発揮できる土台をつくること。</p>
+              <cite>— 合同会社マイホコ コンセプト</cite>
+            </div>
+            <p>
+              整体による直接のケア、内側からアプローチする健康商材、法人の成長を守る節税、個人の自立を促す金融教育。これらすべての事業は、関わる方々の未来に確かな安心と強固な土台をもたらすために存在しています。
+            </p>
+          </div>
+        </div>
+
+        <aside class="wellness-board reveal">
+          <div class="wellness-item">
+            <div class="icon-box">01</div>
+            <div>
+              <h3>Body Wellness<br>身体の健康</h3>
+              <p>骨格の調整、サプリメントの提供を通じて、軽やかで快適に動き、活力に満ちた身体コンディショニングを支えます。</p>
+            </div>
+          </div>
+          <div class="wellness-item">
+            <div class="icon-box gold">02</div>
+            <div>
+              <h3>Financial Wellness<br>お金の健康</h3>
+              <p>法人の資金を守る節税ノウハウと、個人の生活を自衛する金融教育により、将来の豊かさと安心を体系的に構築します。</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="section section-dark">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Business Domains</span>
+          <h2 class="section-title">事業案内</h2>
+          <p class="section-lead">
+            「身体」と「お金」それぞれの領域から、個人事業主、<br>経営者、働くすべての人々に実践的な解決策を提示します。
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div>
+              <div class="service-number">
+                <span>01 / BODY WELLNESS</span>
+                <span class="service-icon">B</span>
+              </div>
+              <h3>身体の健康を導く</h3>
+              <ul class="service-list">
+                <li>
+                  <h4>オーダーメイド整体事業</h4>
+                  <p>お一人お一人の身体のゆがみ、慢性的な痛み、生活習慣を分析し、最適な施術プランを構築。一時しのぎの緩和ではなく、根本的な機能改善と本来持っている自然治癒力を引き出す整体をご提供します。</p>
+                </li>
+                <li>
+                  <h4>高品質健康商材・サプリメントの卸販売</h4>
+                  <p>外側からのアプローチだけでなく、分子栄養学に基づき内側からも身体をサポート。厳選された安全性・有用性の高いサプリメントをはじめとする健康商材を、企業・サロン向けに販売しています。</p>
+                </li>
+              </ul>
+            </div>
+            <div class="service-visual" aria-hidden="true"></div>
+          </article>
+
+          <article class="service-card reveal">
+            <div>
+              <div class="service-number">
+                <span>02 / FINANCIAL WELLNESS</span>
+                <span class="service-icon">F</span>
+              </div>
+              <h3>お金の健康を護る</h3>
+              <ul class="service-list">
+                <li>
+                  <h4>法人の節税・キャッシュ最大化対策</h4>
+                  <p>無駄な納税を抑え、社内に健全な現預金を蓄積・最大化するための具体的な節税戦略をご提案。法令を遵守した健全かつ高効率な資金保全・防衛策をアドバイスします。</p>
+                </li>
+                <li>
+                  <h4>個人の金融リテラシー向上支援</h4>
+                  <p>「稼ぐ・守る・増やす」という総合的な金融知識を養うセミナーや勉強会を主催。投資詐欺への自衛から堅実な資産形成のメソッドまで、生涯役に立つマネー教養をお伝えします。</p>
+                </li>
+              </ul>
+            </div>
+            <div class="service-visual" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="message" class="section">
+      <div class="container message-wrap">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Leader Message</span>
+          <h2 class="section-title">代表メッセージ</h2>
+        </div>
+
+        <article class="message-card reveal">
+          <h3>身体が健康だから、新たな挑戦ができる。お金があるから、大切な人を笑顔にできる。</h3>
+          <div class="message-body">
+            <p>
+              現代の日本において、身体の健康とお金の健康は、どちらも個人が自己防衛しなければならない時代となりました。しかし、これらをどのように守ればよいか、具体的な道筋を体系的に学べる機会は決して多くありません。
+            </p>
+            <p>
+              私は整体事業を通じて数多くの「身体の悩み」を、そしてコンサルティングを通じて多くの企業や個人の「お金の悩み」を目の当たりにしてきました。その中で確信したのは、どちらか一方が欠けても、人は真の幸福を享受することが難しいという事実です。
+            </p>
+            <p>
+              合同会社マイホコは、この二つの領域を本質から徹底的にサポートするために誕生しました。お客様と長期的なパートナーとして信頼を結び、健やかで経済的にも豊かな未来を共に守り、育むことをお約束いたします。
+            </p>
+          </div>
+          <div class="signoff">
+            <div>
+              <small>REPRESENTATIVE</small>
+              <strong>合同会社マイホコ 代表社員</strong>
+            </div>
+            <div class="signature">
+              <b>渡部 晃大</b>
+              <span>AKIHIRO WATANABE</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section section-dark">
+      <div class="container about-grid">
+        <div class="reveal">
+          <div class="section-head">
+            <span class="eyebrow">About Us</span>
+            <h2 class="section-title">会社概要</h2>
+            <p class="section-lead">
+              身体とお金の両面から、個人と法人の未来を支えるパートナーとして活動しています。
+            </p>
+          </div>
+
+          <dl class="profile-table">
+            <div class="profile-row">
+              <dt>会社名</dt>
+              <dd>合同会社マイホコ</dd>
+            </div>
+            <div class="profile-row">
+              <dt>代表者</dt>
+              <dd>渡部 晃大</dd>
+            </div>
+            <div class="profile-row">
+              <dt>所在地</dt>
+              <dd>〒064-0810<br>北海道札幌市中央区南10条西8丁目3-15-105</dd>
+            </div>
+            <div class="profile-row">
+              <dt>事業内容</dt>
+              <dd>
+                <ul>
+                  <li>整体事業</li>
+                  <li>サプリメント等の健康商材の卸販売</li>
+                  <li>法人の節税・財務コンサルティング</li>
+                  <li>個人の金融リテラシー向上セミナー</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!--
+        <aside class="contact-card reveal">
+          <h3>お問い合わせ</h3>
+          <p>
+            整体、卸取引、節税対策、マネースクール等に関するご質問・お見積り・ご相談は、下記メールアドレスまたはお電話にて承っております。
+          </p>
+          <ul class="contact-list">
+            <li>
+              <a href="tel:011-000-0000">
+                <small>PHONE</small>
+                <strong>011-000-0000</strong>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@maihoko.jp">
+                <small>EMAIL</small>
+                <strong>info@maihoko.jp</strong>
+              </a>
+            </li>
+          </ul>
+          <div class="notice">ご相談内容の守秘義務を遵守いたします。</div>
+        </aside>
+      </div>
+    </section> -->
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <strong>MAIHOKO Co.</strong>
+      <small>© 2026 合同会社マイホコ. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+    const menuButton = document.getElementById('menuButton');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = mobileNav.querySelectorAll('a');
+
+    function updateHeader() {
+      header.classList.toggle('is-scrolled', window.scrollY > 32);
+    }
+
+    function closeMenu() {
+      menuButton.classList.remove('is-open');
+      mobileNav.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.classList.toggle('is-open');
+      mobileNav.classList.toggle('is-open', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
